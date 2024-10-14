@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Sparkles, ChevronRight, BrainCircuit, Code, Zap, ArrowRight } from "lucide-react"
+import {ChevronRight} from "lucide-react"
 
 export function AuraOnboarding() {
   const [step, setStep] = useState(1)
@@ -27,7 +27,7 @@ export function AuraOnboarding() {
   }
 
   const handleNext = () => {
-    if (step < 3) setStep(step + 1)
+    if (step < 2) setStep(step + 1)
   }
 
   const handlePrevious = () => {
@@ -36,7 +36,7 @@ export function AuraOnboarding() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    setStep(4)
+    setStep(3)
   }
 
   return (
@@ -84,14 +84,13 @@ export function AuraOnboarding() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="website" className="text-sm font-medium text-gray-300">Website Link</Label>
+                  <Label htmlFor="website" className="text-sm font-medium text-gray-300">App Idea</Label>
                   <Input
                     id="website"
                     name="website"
-                    type="url"
                     required
                     className="bg-gray-800 border-gray-700 text-gray-100 focus:ring-purple-500 focus:border-purple-500"
-                    placeholder="https://yourwebsite.com"
+                    placeholder="What is your Idea?"
                     value={formData.website}
                     onChange={handleInputChange}
                   />
@@ -131,15 +130,6 @@ export function AuraOnboarding() {
                     onChange={handleInputChange}
                   />
                 </div>
-              </motion.div>
-            )}
-            {step === 3 && (
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 20 }}
-                className="space-y-4"
-              >
                 <div className="space-y-2">
                   <Label htmlFor="role" className="text-sm font-medium text-gray-300">Role within Company</Label>
                   <Select onValueChange={handleRoleChange} value={formData.role}>
@@ -157,7 +147,7 @@ export function AuraOnboarding() {
                 </div>
               </motion.div>
             )}
-            {step === 4 && (
+            {step === 3 && (
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -168,15 +158,15 @@ export function AuraOnboarding() {
                 <p className="text-gray-400">Welcome to Aura, {formData.firstName}. Your AI journey begins now.</p>
               </motion.div>
             )}
-            {step < 4 && (
+            {step < 3 && (
               <div className="flex justify-between mt-6">
                 {step > 1 && (
                   <Button type="button" onClick={handlePrevious} variant="outline" className="border-gray-700 text-gray-300 hover:bg-white hover:text-black bg-gray-900">
                     Back
                   </Button>
                 )}
-                <Button type="button" onClick={step === 3 ? handleSubmit : handleNext} className="ml-auto bg-purple-600 text-white hover:bg-purple-700">
-                  {step === 3 ? "Submit" : "Next"}
+                <Button type="button" onClick={step === 2 ? handleSubmit : handleNext} className="ml-auto bg-purple-600 text-white hover:bg-purple-700">
+                  {step === 2 ? "Submit" : "Next"}
                   <ChevronRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
