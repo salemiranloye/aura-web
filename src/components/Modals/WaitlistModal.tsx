@@ -23,7 +23,7 @@ type ValidationErrors = {
   [K in keyof FormData]?: string
 }
 
-export default function WaitlistModal({closeModal}: {closeModal: () => void}) {
+export default function WaitlistModal({ closeModal }: { closeModal: () => void }) {
   const { toast } = useToast()
   const [step, setStep] = useState(1)
   const [formData, setFormData] = useState<FormData>({
@@ -54,6 +54,7 @@ export default function WaitlistModal({closeModal}: {closeModal: () => void}) {
       if (!formData.email) newErrors.email = "Email is required"
       else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = "Invalid email format"
       if (!formData.appIdea) newErrors.appIdea = "App idea is required"
+      else if (formData.appIdea.split(/\s+/).length < 5) newErrors.appIdea = "App idea must be at least 5 words"
     } else if (stepNumber === 2) {
       if (!formData.firstName) newErrors.firstName = "First name is required"
       if (!formData.lastName) newErrors.lastName = "Last name is required"
@@ -102,6 +103,11 @@ export default function WaitlistModal({closeModal}: {closeModal: () => void}) {
       }, 2000)
 
     } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to submit. Please try again.",
+        action: <ToastAction altText="Try again">Try again</ToastAction>,
+      })
     } finally {
       setIsSubmitting(false)
     }
@@ -168,7 +174,7 @@ export default function WaitlistModal({closeModal}: {closeModal: () => void}) {
           )}
         </form>
         {step < 3 && (
-          <ProgressIndicator step={step} />
+          <ProgressIndicator step={step} isSubmitting={isSubmitting} />
         )}
       </div>
     </div>
@@ -281,7 +287,7 @@ function Step2({ formData, handleInputChange, handleRoleChange, errors }: { form
           <SelectTrigger className={`border-gray-600 bg-gray-700/50 text-gray-100 focus:border-fuchsia-500 focus:ring-fuchsia-500 ${errors.role ? 'border-red-500' : ''}`}>
             <SelectValue placeholder="Select your role" />
           </SelectTrigger>
-          <SelectContent>
+          <SelectContent className="bg-gray-700 text-white border-none">
             <SelectItem value="developer">Developer</SelectItem>
             <SelectItem value="designer">Designer</SelectItem>
             <SelectItem value="product-manager">Product Manager</SelectItem>
@@ -321,7 +327,7 @@ function Step3({ firstName }: { firstName: string }) {
   )
 }
 
-function ProgressIndicator({ step }: { step: number }) {
+function ProgressIndicator({ step, isSubmitting }: { step: number, isSubmitting: boolean }) {
   const progress = (step - 1) / 2 * 100;
 
   return (
@@ -329,10 +335,9 @@ function ProgressIndicator({ step }: { step: number }) {
       <div className="w-1/2 bg-gray-600 rounded-full h-2.5">
         <div
           className="bg-fuchsia-500 h-2.5 rounded-full transition-all duration-300 ease-in-out"
-          style={{ width: `${progress}%` }}
+          style={{ width: isSubmitting ? '100%' : `${progress}%` }}
         ></div>
       </div>
     </div>
   );
-
 }

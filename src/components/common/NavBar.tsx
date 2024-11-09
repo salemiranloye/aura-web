@@ -87,19 +87,13 @@ export default function NavBar() {
             </span>
           </a>
           <div className="flex items-center space-x-4">
-            <a className="text-sm font-medium text-gray-300 hover:text-purple-400 transition-colors" href="#">
-              Features
-            </a>
-            <a className="text-sm font-medium text-gray-300 hover:text-purple-400 transition-colors" href="#">
-              Pricing
-            </a>
             <button className={cn(
               "relative overflow-hidden rounded-full px-4 py-1.5 text-sm font-medium text-white",
               "bg-gradient-to-r from-purple-500 to-pink-500",
               "transition-all hover:from-purple-600 hover:to-pink-600",
               "focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-gray-900"
             )}>
-              Learn More
+              Join Waitlist
             </button>
           </div>
         </nav>
