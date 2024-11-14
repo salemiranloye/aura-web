@@ -128,7 +128,7 @@ export default function WaitlistSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             >
-              Be among the first to experience our revolutionary AI-powered app development platform. Sign up now and get early access to shape the future of app creation.
+              Turn your app ideas into reality with the power of AI.
             </motion.p>
           </div>
           <div className="lg:w-1/2 w-full max-w-md mb-10 lg:mb-0">

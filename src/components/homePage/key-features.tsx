@@ -14,18 +14,18 @@ export default function KeyFeatures() {
   const features = [
     {
       icon: BrainCircuit,
-      title: "AI Model Integration",
-      description: "Seamlessly integrate cutting-edge AI models into your application with our intuitive API.",
+      title: "Chat-Driven Design",
+      description: "Our intelligent system asks the right questions to understand your vision and shape your perfect app.",
     },
     {
       icon: Code,
-      title: "Intuitive Development",
-      description: "Experience a user-friendly interface for coding and model training, designed for developers of all levels.",
+      title: "AI-Powered App Creation",
+      description: "Turn your ideas into mobile apps through an AI-guided conversation - no coding required.",
     },
     {
       icon: Zap,
-      title: "Rapid Deployment",
-      description: "Deploy your AI applications quickly and efficiently, reducing time-to-market and accelerating innovation.",
+      title: "Instant Deployment",
+      description: "Launch your app directly to the App Store and Google Play Store with our automated deployment system.",
     },
   ]
 

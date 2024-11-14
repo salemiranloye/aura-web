@@ -1,6 +1,6 @@
 "use client"
 
-import { TrendingUp, Zap, Code2, Sparkles, Rocket, Shield, Upload, TabletSmartphone, Database, CreditCard, Palette, Globe, MessageSquare, Brain, Cpu } from "lucide-react"
+import { TrendingUp, Zap, Code2, Sparkles, Rocket, Shield, Upload, TabletSmartphone, Database, CreditCard, Palette, Globe, MessageSquare, Brain, Cpu, Apple, Play } from "lucide-react"
 import React, { useState, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Splide, SplideSlide } from '@splidejs/react-splide'
@@ -16,13 +16,13 @@ const badges = [
   { icon: Rocket, text: "Quick to Build", color: "text-red-400" },
   { icon: Shield, text: "Secure", color: "text-indigo-400" },
   { icon: Upload, text: "Easy Uploads", color: "text-pink-400" },
-  { icon: TabletSmartphone, text: "App Store", color: "text-cyan-400" },
-  { icon: TabletSmartphone, text: "Google Play Store", color: "text-cyan-400" },
+  { icon: Apple, text: "App Store", color: "text-gray-300" },
+  { icon: Play, text: "Google Play Store", color: "text-lime-500" },
   { icon: Database, text: "Supports Databases", color: "text-emerald-400" },
   { icon: CreditCard, text: "Ready to Monetize", color: "text-amber-400" },
   { icon: Palette, text: "Custom Branding", color: "text-rose-400" },
   { icon: Globe, text: "Auto Deploys", color: "text-violet-400" },
-  { icon: MessageSquare, text: "Chat Feature", color: "text-teal-400" },
+  // { icon: MessageSquare, text: "Chat Feature", color: "text-teal-400" },
   { icon: Brain, text: "No-Code Friendly", color: "text-lime-400" },
   { icon: Cpu, text: "Optimized", color: "text-sky-400" },
 ];
@@ -60,7 +60,7 @@ export default function OnboardingForm() {
             Welcome to <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">Aura</span>
           </h1>
           <p className="mx-auto mb-8 max-w-2xl text-xl text-gray-300">
-            Where your ideas transcend reality. <br />Build the future with AI-powered innovation.
+            AI powered App Development
           </p>
           <div className="mt-8">
             <button onClick={openModal} className="relative inline-flex h-14 overflow-hidden rounded-full p-[1px]">

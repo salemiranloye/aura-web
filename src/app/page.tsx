@@ -7,7 +7,7 @@ import WaitlistSection from "@/components/homePage/waitlist";
 
 export default function Home() {
   return (
-    <div className="bg-gray-900 ">
+    <div className="bg-gray-900">
       
       <OnboardingForm/>
       <KeyFeatures/>

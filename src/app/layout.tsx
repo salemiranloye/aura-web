@@ -30,9 +30,9 @@ export default function RootLayout({
     <html lang="en">
       <CSPostHogProvider>
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`}
+          className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen overscroll-none`}
         >
-          <div className="flex flex-col min-h-screen bg-gray-900 overscroll-none">
+          <div className="flex flex-col min-h-screen bg-gray-900">
             <NavBar />
             {children}
             <Footer />
