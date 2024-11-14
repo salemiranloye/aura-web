@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import NavBar from "@/components/common/NavBar";
 import Footer from "@/components/common/Footer";
+import { CSPostHogProvider } from './providers'
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -27,15 +28,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`}
-      >
-        <div className="flex flex-col min-h-screen bg-gray-900 pt-20">
-          <NavBar />
-          {children}
-          <Footer />
-        </div>
-      </body>
+      <CSPostHogProvider>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`}
+        >
+          <div className="flex flex-col min-h-screen bg-gray-900 overscroll-none">
+            <NavBar />
+            {children}
+            <Footer />
+          </div>
+        </body>
+      </CSPostHogProvider>
     </html>
   );
 }

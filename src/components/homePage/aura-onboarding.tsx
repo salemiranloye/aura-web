@@ -1,6 +1,6 @@
 "use client"
 
-import {TrendingUp, Zap, Code2, Sparkles, Rocket, Shield, Upload, TabletSmartphone, Database, CreditCard, Palette, Globe, MessageSquare, Brain, Cpu } from "lucide-react"
+import { TrendingUp, Zap, Code2, Sparkles, Rocket, Shield, Upload, TabletSmartphone, Database, CreditCard, Palette, Globe, MessageSquare, Brain, Cpu } from "lucide-react"
 import React, { useState, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Splide, SplideSlide } from '@splidejs/react-splide'
@@ -35,8 +35,14 @@ export default function OnboardingForm() {
 
   return (
     <section className="relative flex flex-col items-center justify-center overflow-hidden bg-gray-900 px-4 py-24">
-      <div className="absolute inset-0 bg-[url('/svgs/bg-pattern.svg')] bg-no-repeat bg-center bg-cover z-0" />
-      <motion.div 
+      <div
+        className="absolute inset-0 bg-no-repeat bg-center bg-cover z-0"
+        style={{
+          backgroundImage: "url('/svgs/bg-pattern.svg')",
+          opacity: 0.4,
+        }}
+      />
+      <motion.div
         className="absolute inset-0"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -98,7 +104,7 @@ export default function OnboardingForm() {
       </div>
 
       <AnimatePresence>
-        {isModalOpen && <WaitlistModal closeModal={closeModal}/>}
+        {isModalOpen && <WaitlistModal closeModal={closeModal} />}
       </AnimatePresence>
     </section>
   )
